@@ -15,7 +15,7 @@ type Query {
 }
 
 # Mutation用のオブジェクト定義
-type NewVideo {
+input NewVideo {
   title: String!
   url: String!
   userId: String!
