@@ -11,11 +11,11 @@ import (
 	"github.com/taiki1288/go-graphql-movie/graph/model"
 )
 
-func (r *mutationResolver) CreateTodo(ctx context.Context, input model.NewTodo) (*model.Todo, error) {
+func (r *mutationResolver) CreateVideo(ctx context.Context, input model.NewVideo) (*model.Video, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
-func (r *queryResolver) Todos(ctx context.Context) ([]*model.Todo, error) {
+func (r *queryResolver) Videos(ctx context.Context) ([]*model.Video, error) {
 	panic(fmt.Errorf("not implemented"))
 }
 
