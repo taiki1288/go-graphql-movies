@@ -5,6 +5,7 @@ package graph
 
 import (
 	"context"
+	"math/rand"
 	"fmt"
 
 	"github.com/taiki1288/go-graphql-movie/graph/generated"
@@ -12,11 +13,18 @@ import (
 )
 
 func (r *mutationResolver) CreateVideo(ctx context.Context, input model.NewVideo) (*model.Video, error) {
-	panic(fmt.Errorf("not implemented"))
+	video := &model.Video{
+		ID: fmt.Sprintf("T%d", rand.Int()),
+		Title: input.Title,
+		URL: input.URL,
+		Author: &model.User{ID: input.UserID, Name: "user " + input.UserID},
+	}
+	r.videos = append(r.videos, video)
+	return video, nil
 }
 
 func (r *queryResolver) Videos(ctx context.Context) ([]*model.Video, error) {
-	panic(fmt.Errorf("not implemented"))
+	return r.videos, nil
 }
 
 // Mutation returns generated.MutationResolver implementation.
